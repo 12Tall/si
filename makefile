@@ -1,3 +1,3 @@
 build:main.cpp
-	g++ -g main.cpp -o main
+	g++ -g main.cpp ./filereader/*.cpp -o main.out
 
