@@ -6,8 +6,6 @@
 
 namespace si{
 
-    const static std::string keywords[] = {"EOF","+","-","*","/"};
-
     enum TokenType{
         ILLEGAl = -1,
         ENDOFFILE,
@@ -16,34 +14,24 @@ namespace si{
         OP_MUL,
         OP_DIV,
         OP_MOD,
+        LPAREN,
+        RPAREN,
         INTEGER,
         DOUBLE,
-        STRING
+        STRING,
     };
-
-    typedef union TokenValue
-    {
-        int iValue;
-        double fValue;
-        std::string sValue;
-        
-        TokenValue(){
-            std::cout<<"创建token value"<<std::endl;
-        };
-        ~TokenValue(){
-            std::cout<<"销毁token value"<<std::endl;
-        };
-    } TokenValue,* pTokenValue;
     
 
     class Token
     {
     private:
         TokenType type;
-        TokenValue value;
+        std::string value;
     public:
         std::string ToString();
-        const pTokenValue GetValue();
+        std::string GetValue();
+        int GetIntValue();
+        double GetDblValue();
         TokenType GetType();
         Token(TokenType type,std::string val);
         ~Token();

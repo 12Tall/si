@@ -10,9 +10,10 @@ namespace si{
     private:
         FILE * file;  // 文件指针
         char * buffer;  // 字符缓冲区
-        bool isEOF;  // 是否读完文件
+        bool eof;  // 是否读完文件
         int readNum;  // 实际读取的字符数
     public:
+        bool isEOF();
         const static int bufferSize = 1024;  // 缓冲区大小
         char * Read();  // 读取
         FileReader(const char * filename);  // 构造函数

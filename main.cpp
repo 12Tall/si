@@ -1,5 +1,4 @@
 #include<iostream>
-#include"./filereader/filereader.hpp"
 #include"./lexer/token.hpp"
 #include"./lexer/lexer.hpp"
 
@@ -8,9 +7,15 @@ int main(void){
 
     si::Lexer * lexer = new si::Lexer("test.txt");
     
-    std::cout<<lexer->GetToken()->ToString()<<std::endl;
+    // 
+
+    si::Token * token;
+    do{
+        token = lexer->GetToken();
+        std::cout<<token->ToString()<<std::endl;
+    }    while (token->GetType() != si::ENDOFFILE  );
     
-    std::cout<<lexer->GetToken()->ToString()<<std::endl;
+    // 
     // std::cout<<lexer->GetToken()->ToString()<<std::endl;
     // std::cout<<lexer->GetToken()->ToString()<<std::endl;
     delete lexer;

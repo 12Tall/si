@@ -4,8 +4,11 @@
 #include"filereader.hpp"
 
 namespace si{
+    bool FileReader::isEOF(){
+        return eof;
+    }
     char * FileReader::Read(){
-        if(isEOF){
+        if(eof){
             return nullptr;
         }
 
@@ -14,7 +17,7 @@ namespace si{
         readNum = fread(buffer,sizeof(char),bufferSize,file);
 
         if(readNum < bufferSize){
-            isEOF = true;
+            eof = true;
         }
 
         return buffer;
@@ -38,7 +41,7 @@ namespace si{
         }
         std::cout<<"创建缓冲区"<<std::endl;
 
-        isEOF = false;
+        eof = false;
         readNum = 0;
     }
 

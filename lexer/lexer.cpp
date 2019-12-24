@@ -10,8 +10,8 @@ namespace si{
         }while ((ch==' ')||(ch=='\n')||(ch=='\r'));
     }
 
-    Token * Lexer::GetToken(){                
-        if(pos == FileReader::bufferSize){            
+    Token * Lexer::GetToken(){          
+        if(pos == FileReader::bufferSize || ch=='\0'){            
             std::cout<<"从文件中读取字符串"<<std::endl;
             str = reader->Read();
             if (str == nullptr)
@@ -20,8 +20,8 @@ namespace si{
             }
             pos = 0;    
         }
+        ReadChar();      
 
-        ReadChar();
 
         temp = std::string("");
         
@@ -59,17 +59,24 @@ namespace si{
         switch (ch)
         {
             case '+':
-                return new Token(OP_PLUS,std::string("+"));
+                return new Token(OP_PLUS,"+");
             case '-':
                 return new Token(OP_MINUS,"-");
             case '*':
                 return new Token(OP_MUL,"*");
             case '/':
                 return new Token(OP_DIV,"/");            
+            case '(':
+                return new Token(LPAREN,"(");            
+            case ')':
+                return new Token(RPAREN,")");            
+            case '\0':
+                return new Token(ENDOFFILE,"EOF");            
             default:
                 return new Token(ILLEGAl,"illegal");
         }
         
+        return new Token(ILLEGAl,"illegal");
 
     }
 
