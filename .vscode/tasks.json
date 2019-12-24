@@ -8,6 +8,7 @@
                 "-g",
                 "${workspaceFolder}/main.cpp",
                 "${workspaceFolder}/filereader/*.cpp",
+                "${workspaceFolder}/lexer/*.cpp",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}.out"
             ],

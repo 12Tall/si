@@ -8,7 +8,7 @@ int main(void){
     si::FileReader * rd = new si::FileReader("test.txt");
     std::cout<<rd->Read()<<std::endl;
     si::TokenValue val;
-    val.iValue = 12;
+    val.iValue = 97;
     si::Token * token = new si::Token(si::INTEGER,&val);
     std::cout<<token->ToString()<<std::endl;
     delete rd;

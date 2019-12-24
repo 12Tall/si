@@ -15,10 +15,10 @@ namespace si{
         switch (type)
         {
         case INTEGER:
-            val = value.iValue;
+            val = std::to_string(value.iValue);
             break;
         case DOUBLE:
-            val = value.fValue;
+            val = std::to_string(value.fValue);
             break;        
         default:
             val = value.sValue;
