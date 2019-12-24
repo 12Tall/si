@@ -21,25 +21,25 @@ namespace si{
             val = std::to_string(value.fValue);
             break;        
         default:
-            val = value.sValue;
+            val = std::string(value.sValue);
             break;
         }
 
         return "token("+(std::to_string(type))+","+val+")";
     }
 
-    Token::Token(TokenType _type,pTokenValue val){
+    Token::Token(TokenType _type,std::string val){
         type = _type;
-        switch (type)
+        switch (_type)
         {
             case INTEGER:
-                value.iValue = val->iValue;
+                value.iValue = atoi(val.c_str());
                 break;
             case DOUBLE:
-                value.fValue = val->fValue;
+                value.fValue = atof(val.c_str());
                 break;
             case STRING:
-                value.sValue = val->sValue;
+                value.sValue = std::string(val);
                 break;
             default:
                 value.sValue = keywords[type];

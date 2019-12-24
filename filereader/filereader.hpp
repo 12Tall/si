@@ -13,7 +13,7 @@ namespace si{
         bool isEOF;  // 是否读完文件
         int readNum;  // 实际读取的字符数
     public:
-        const int bufferSize = 1024;  // 缓冲区大小
+        const static int bufferSize = 1024;  // 缓冲区大小
         char * Read();  // 读取
         FileReader(const char * filename);  // 构造函数
         ~FileReader();

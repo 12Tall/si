@@ -27,19 +27,12 @@ namespace si{
         double fValue;
         std::string sValue;
         
-        TokenValue(){};
-        TokenValue(int val){
-            iValue = val;
+        TokenValue(){
+            std::cout<<"创建token value"<<std::endl;
         };
-        
-        TokenValue(double val){
-            fValue = val;
+        ~TokenValue(){
+            std::cout<<"销毁token value"<<std::endl;
         };
-        
-        TokenValue(std::string val){
-            sValue = val;
-        };
-        ~TokenValue(){};
     } TokenValue,* pTokenValue;
     
 
@@ -52,7 +45,7 @@ namespace si{
         std::string ToString();
         const pTokenValue GetValue();
         TokenType GetType();
-        Token(TokenType type,pTokenValue val);
+        Token(TokenType type,std::string val);
         ~Token();
     };
     
