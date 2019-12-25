@@ -9,6 +9,7 @@
                 "${workspaceFolder}/main.cpp",
                 "${workspaceFolder}/filereader/*.cpp",
                 "${workspaceFolder}/lexer/*.cpp",
+                "${workspaceFolder}/parser/*.cpp",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}.out"
             ],

@@ -1,31 +1,30 @@
 #include<iostream>
 #include"./lexer/token.hpp"
 #include"./lexer/lexer.hpp"
+#include"./parser/node.hpp"
 
 int main(void){
     std::cout<<"Hello World!"<<std::endl;
 
-    si::Lexer * lexer = new si::Lexer("test.txt");
-    
-    // 
+    si::Node * left = new si::Node(new si::Token(si::INTEGER,"97"));
+    si::Node * right = new si::Node(new si::Token(si::INTEGER,"9.7"));
+    si::Node * op = new si::Node(new si::Token(si::OP_DIV,"/"));
+    op->SetLeft(left);
+    op->SetRight(right);
+    std::cout<<op->GetValue()<<std::endl;
 
-    si::Token * token;
-    do{
-        token = lexer->GetToken();
-        std::cout<<token->ToString()<<std::endl;
-    }    while (token->GetType() != si::ENDOFFILE  );
+    delete op;
+    // si::Lexer * lexer = new si::Lexer("test.txt");
     
-    // 
-    // std::cout<<lexer->GetToken()->ToString()<<std::endl;
-    // std::cout<<lexer->GetToken()->ToString()<<std::endl;
-    delete lexer;
 
-    // si::FileReader * rd = new si::FileReader("test.txt");
-    // std::cout<<rd->Read()<<std::endl;
-    // si::TokenValue val;
-    // si::Token * token = new si::Token(si::INTEGER,"97");
-    // std::cout<<token->ToString()<<std::endl;
-    // delete token;
-    // delete rd;
+
+    // si::Token * token;
+    // do{
+    //     token = lexer->GetToken();
+    //     std::cout<<token->ToString()<<std::endl;
+    // }    while (token->GetType() != si::ENDOFFILE  );
+    
+    // delete lexer;
+
     return 0;
 }

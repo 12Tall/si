@@ -31,11 +31,12 @@ namespace si{
     }
 
     Token::Token(TokenType _type,std::string val){
+        std::cout<<"创建Token"<<std::endl;
         type = _type;
         value = val;
     }
 
     Token::~Token(){
-
+        std::cout<<"销毁Token"<<std::endl;
     }
 }
