@@ -89,10 +89,10 @@ namespace si{
     }
 
     Parser::~Parser(){
-        std::cout<<"销毁parser"<<std::endl;
-        delete lexer;
-        lexer = nullptr;
         delete ast;
         ast = nullptr;
+        delete lexer;
+        lexer = nullptr;
+        std::cout<<"销毁parser"<<std::endl;
     }
 }
