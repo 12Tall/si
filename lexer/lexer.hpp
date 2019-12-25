@@ -19,6 +19,7 @@ namespace si{
         public:
             Token * GetToken();
             Lexer(const char* file);
+            Lexer(FileReader * _reader);
             ~Lexer();
         };    
 }

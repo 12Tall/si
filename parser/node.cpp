@@ -36,24 +36,31 @@ namespace si{
     }
 
     void Node::SetLeft(Node * _left){
-        left = _left;
+        // std::cout<<ToString()<<" 添加左节点："<<std::endl;
+        left = _left;        
+        // std::cout<<ToString()<<std::endl;
     }
 
     void Node::SetRight(Node * _right){
+        // std::cout<<ToString()<<" 添加右节点："<<std::endl;
         right = _right;
+        // std::cout<<ToString()<<std::endl;
     }
 
+    std::string Node::ToString(){
+        return "<"+(left==nullptr?"":left->ToString()+",")+token->ToString()+(right==nullptr?"":","+right->ToString())+">";
+    }
 
 
 
     Node::Node(Token * _token){
-        std::cout<<"创建Node"<<std::endl;
         token = _token;
+        std::cout<<"创建Node："<<ToString()<<std::endl;
     }
     Node::~Node(){
+        std::cout<<"销毁Node"<<ToString()<<std::endl;
         delete token;
         token = nullptr;
-        std::cout<<"销毁Node"<<std::endl;
         if (left != nullptr)
         {
             delete left;

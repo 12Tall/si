@@ -49,13 +49,6 @@ namespace si{
         }
         
         
-
-        // while((ch>='a' && ch<='z')||(ch>='a' && ch<='z'))
-        // {
-        //     // todo
-        //     // read string
-        // }
-        
         switch (ch)
         {
             case '+':
@@ -84,6 +77,12 @@ namespace si{
         std::cout<<"创建Lexer"<<std::endl;
         pos= FileReader::bufferSize;
         reader = new FileReader(filename);
+    }
+
+    Lexer::Lexer(FileReader * _reader){
+        std::cout<<"创建Lexer"<<std::endl;
+        pos= FileReader::bufferSize;
+        reader = _reader;
     }
     Lexer::~Lexer(){
         delete reader;

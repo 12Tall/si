@@ -16,6 +16,7 @@ namespace si{
             void SetLeft(Node * _left);
             void SetRight(Node * _right);
             double GetValue();
+            std::string ToString();
             Node(Token * _token);
             ~Node();
     };    
